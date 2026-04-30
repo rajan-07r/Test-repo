@@ -1173,8 +1173,8 @@
                         <div class="pipeline-arrow">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
                         </div>
-                        <div class="pipeline-step">
-                            <div class="step-icon" style="color: #f59e0b;">
+                        <div class="pipeline-step" style="color: #f59e0b;">
+                            <div class="step-icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                             </div>
                             <div class="step-label">GNN Model</div>
@@ -1859,7 +1859,6 @@
         </div>
     </section>
 
-
     <!-- SKILLS SECTION -->
     <section class="section" id="skills">
         <div class="container">
@@ -2295,8 +2294,6 @@
             transform: translateY(-3px);
         }
 
-        
-
         .skill-cat-header {
             display: flex;
             align-items: center;
@@ -2381,6 +2378,288 @@
             opacity: 1;
         }
     </style>
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(320px, 1.35fr) minmax(320px, 0.85fr);
+            gap: 32px;
+            align-items: start;
+        }
+
+        .contact-panel {
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(59, 130, 246, 0.18);
+            border-radius: 30px;
+            padding: 36px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-panel::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.16), transparent 65%);
+            border-radius: 50%;
+        }
+
+        .contact-panel-text {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 28px;
+        }
+
+        .contact-panel-text h3 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin-bottom: 16px;
+            max-width: 540px;
+        }
+
+        .contact-panel-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .contact-form label {
+            display: grid;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 16px 18px;
+            color: var(--text-primary);
+            font: inherit;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: rgba(59, 130, 246, 0.08);
+            border-color: var(--accent-blue);
+        }
+
+        .contact-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-auto-rows: 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 28px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 0;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 45px rgba(59, 130, 246, 0.16);
+        }
+
+        .contact-card .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            background: rgba(59, 130, 246, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .contact-card a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .contact-card-meta {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .copy-email-btn,
+        .scroll-top-btn {
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.24);
+            color: var(--accent-blue);
+            border-radius: 999px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .copy-email-btn:hover,
+        .scroll-top-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(59, 130, 246, 0.18);
+        }
+
+        .contact-note {
+            margin-top: 14px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom {
+            padding: 22px 40px 36px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(15, 23, 42, 0.96);
+            color: white;
+            padding: 14px 22px;
+            border-radius: 999px;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 2000;
+        }
+
+        .toast.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 920px) {
+            .contact-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+                display: grid;
+            }
+
+            .contact-panel,
+            .contact-cards,
+            .footer-content {
+                width: 100%;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .contact-grid {
+                gap: 20px;
+            }
+
+            .contact-panel {
+                padding: 28px;
+            }
+
+            .footer-content {
+                padding: 28px 24px;
+            }
+
+            .footer-bottom {
+                padding: 20px 24px 32px;
+            }
+        }
+    </style>
 
     <!-- CONTACT SECTION -->
     <section class="section" id="contact" style="background: var(--bg-secondary);">
@@ -2394,33 +2673,65 @@
             </div>
 
             <div class="contact-grid">
-                <div class="contact-card email">
-                    <div class="contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div class="contact-panel">
+                    <div class="contact-panel-text">
+                        <span class="section-label">Get in touch</span>
+                        <h3>Share a quick brief and I’ll reply with a tailored AI plan.</h3>
+                        <p>Whether it’s a generative AI pilot, cloud-native pipeline, or quality intelligence system, I’m ready to help you bring it to production.</p>
                     </div>
-                    <h3>Email</h3>
-                    <a href="mailto:rajankamalrajan07@gmail.com">rajankamalrajan07@gmail.com</a>
+                    <form class="contact-form" onsubmit="event.preventDefault(); showToast('Message ready to send!');">
+                        <label>
+                            <span>Name</span>
+                            <input type="text" placeholder="Your name" required>
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="email" placeholder="you@example.com" required>
+                        </label>
+                        <label>
+                            <span>Project summary</span>
+                            <textarea placeholder="Short description of your idea"></textarea>
+                        </label>
+                        <button type="submit" class="btn-primary">Send message</button>
+                    </form>
                 </div>
-                <div class="contact-card linkedin">
-                    <div class="contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+
+                <div class="contact-cards">
+                    <div class="contact-card email">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <h3>Email</h3>
+                        <div class="contact-card-meta">
+                            <a href="mailto:rajankamalrajan07@gmail.com">rajankamalrajan07@gmail.com</a>
+                            <button type="button" class="copy-email-btn">Copy</button>
+                        </div>
+                        <p class="contact-note">Quick copy to clipboard for faster outreach.</p>
                     </div>
-                    <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/rajan-502630306/" target="_blank">linkedin.com/in/rajan-502630306/</a>
-                </div>
-                <div class="contact-card github">
-                    <div class="contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <div class="contact-card linkedin">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/rajan-502630306/" target="_blank">linkedin.com/in/rajan-502630306/</a>
+                        <p class="contact-note">Connect and review my professional portfolio.</p>
                     </div>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/rajan-07r" target="_blank">github.com/rajan-07r</a>
-                </div>
-                <div class="contact-card resume">
-                    <div class="contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <div class="contact-card github">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </div>
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/rajan-07r" target="_blank">github.com/rajan-07r</a>
+                        <p class="contact-note">Explore code examples and AI projects.</p>
                     </div>
-                    <h3>Resume</h3>
-                    <a href="Rajan_Resume.html" download>Download Resume</a>
+                    <div class="contact-card resume">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <h3>Resume</h3>
+                        <a href="Rajan_Resume.html" download>Download Resume</a>
+                        <p class="contact-note">Get a quick copy of my latest profile.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2441,22 +2752,27 @@
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
             </div>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/rajan-502630306/" target="_blank" aria-label="LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-                <a href="https://github.com/rajan-07r" target="_blank" aria-label="GitHub">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="mailto:rajankamalrajan07@gmail.com" aria-label="Email">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </a>
+            <div class="footer-actions">
+                <button type="button" class="scroll-top-btn">Back to top</button>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/rajan-502630306/" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://github.com/rajan-07r" target="_blank" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="mailto:rajankamalrajan07@gmail.com" aria-label="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>Built with passion for intelligent systems. © 2026 Rajan. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="toast" class="toast">Email copied to clipboard</div>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -2565,6 +2881,34 @@
         networkNodes.forEach((node, i) => {
             node.style.animationDelay = `${i * 0.3}s`;
         });
+
+        // Copy email / toast interaction
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.textContent = message;
+            toast.classList.add('visible');
+            window.clearTimeout(window.toastTimeout);
+            window.toastTimeout = window.setTimeout(() => {
+                toast.classList.remove('visible');
+            }, 2400);
+        }
+
+        const copyEmailBtn = document.querySelector('.copy-email-btn');
+        if (copyEmailBtn) {
+            copyEmailBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText('rajankamalrajan07@gmail.com')
+                    .then(() => showToast('Email copied to clipboard'))
+                    .catch(() => showToast('Copied to clipboard'));
+            });
+        }
+
+        const scrollTopBtn = document.querySelector('.scroll-top-btn');
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
